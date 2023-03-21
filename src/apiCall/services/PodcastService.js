@@ -10,7 +10,7 @@ export default class PodcastService{
     async getAll(){
         const response = axios.get(this.baseUrl)
 
-        const getData = (await response).data
+        const getData = (await response).data.feed.entry
 
 
         return getData

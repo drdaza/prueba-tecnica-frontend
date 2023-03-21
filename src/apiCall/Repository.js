@@ -1,4 +1,5 @@
 import PodcastService from "./services/PodcastService"
+import PodcastListService from "./services/PodcastListService"
 export default class Repositor{
     api
 
@@ -7,6 +8,7 @@ export default class Repositor{
     }
 
     chooseApi(){
-        if ('podcast') return new PodcastService()
+        if('podcast') return new PodcastService()
+        if('podcast-list') return new PodcastListService()
     }
 }
