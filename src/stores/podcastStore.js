@@ -12,12 +12,28 @@ export const usePodcastStore = defineStore(
         }),
         actions:{
             async getAll(){
-                const repository = new Repository('podcast')
 
-                const service = repository.chooseApi()
-
-                this.allPodcast = await service.getAll()
                 
+                setInterval(()=>{
+                    window.localStorage.clear()
+                    console.log('clear storage');
+                    this.modifyState()
+                },3600*24)
+
+                
+
+            },
+            async modifyState(){
+                if (window.localStorage.getItem('podcast') == undefined) {
+                    console.log('?????');
+                    const repository = new Repository('podcast')
+
+                    const service = repository.chooseApi()
+
+                    this.allPodcast = await service.getAll()
+
+                    return
+                }
             }
         }
     
