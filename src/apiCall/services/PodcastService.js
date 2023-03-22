@@ -1,18 +1,54 @@
 import axios from 'axios'
-export default class PodcastService{
+import PodcastPayload from '../payloads/PodcastPayload'
+import EpisodePayload from '../payloads/EpisodePayload'
+import Repository from '../Repository'
+export default class PodcastService {
 
     baseUrl
 
-    constructor(){
-        this.baseUrl = 'https://itunes.apple.com/us/rss/toppodcasts/limit=10/genre=1310/json'
+    constructor() {
+        this.baseUrl = 'https://itunes.apple.com/us/rss/toppodcasts/limit=100/genre=1310/json'
     }
 
-    async getAll(){
+    async getAll() {
         const response = axios.get(this.baseUrl)
 
         const getData = (await response).data.feed.entry
 
-        return getData
+        const listElements = []
+        for (const podcast of getData) {
+
+            const listEpisodes = await this.getAllEpisodes(podcast['id'].attributes['im:id'])
+
+            const podcastPayload = new PodcastPayload(podcast['im:name'].label, podcast['im:artist'].label, podcast['summary'].label, listEpisodes)
+
+            listElements.push(podcastPayload)
+        }
+
+        return listElements
+    }
+    async getAllEpisodes(idPodcast){
+
+        const repository = new Repository('podcast-list')
+        
+
+        const service = repository.chooseApi()
+        
+        const data = await service.getAllEpisodes(idPodcast)
+
+        const listEpisodes = []
+        
+
+        for (const episode of data){
+            
+                const episodePayload = new EpisodePayload(episode.trackName,episode.description,episode.releaseDate,episode.trackTimeMillis,episode.episodeUrl)
+               
+                listEpisodes.push(episodePayload)
+            
+        }
+       
+        return listEpisodes
+
     }
 
 }
