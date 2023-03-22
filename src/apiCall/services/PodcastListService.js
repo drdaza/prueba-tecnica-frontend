@@ -6,12 +6,10 @@ export default class PodcastListService{
     constructor(){
         this.baseUrl = 'https://itunes.apple.com'
     }
-    async getAll(idPodcast){
-        const response = axios.get(this.baseUrl + `/lookup?id=${idPodcast}&country=US&media=podcast&entity=podcastEpisode&limit=100`)
+    async getAllEpisodes(idPodcast){
+        const response = axios.get(this.baseUrl + `/lookup?id=${idPodcast}&country=US&media=podcast&entity=podcastEpisode&limit=48`)
 
-        const getData = (await response).data
-
-        console.log(getData);
+        const getData = (await response).data.results
 
         return getData
     }

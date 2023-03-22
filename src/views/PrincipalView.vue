@@ -1,13 +1,13 @@
 <script setup>
 import { usePodcastStore } from '../stores/podcastStore';
-import { onBeforeMount, ref } from 'vue';
+import { onBeforeMount, ref, reactive } from 'vue';
 
 
 const podcastStore = usePodcastStore()
 
 
-onBeforeMount(async () => {
-await podcastStore.getAll()
+onBeforeMount(() => {
+podcastStore.getAll()
    
 })
 console.log(podcastStore.allPodcast);

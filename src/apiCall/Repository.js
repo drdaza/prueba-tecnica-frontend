@@ -8,7 +8,7 @@ export default class Repositor{
     }
 
     chooseApi(){
-        if('podcast') return new PodcastService()
-        if('podcast-list') return new PodcastListService()
+        if(this.api==='podcast') return new PodcastService()
+        if(this.api==='podcast-list') return new PodcastListService()
     }
 }
