@@ -20,7 +20,7 @@ export default class PodcastService {
 
             const listEpisodes = await this.getAllEpisodes(podcast['id'].attributes['im:id'])
 
-            const podcastPayload = new PodcastPayload(podcast['im:name'].label, podcast['im:artist'].label, podcast['summary'].label, listEpisodes)
+            const podcastPayload = new PodcastPayload(podcast['im:name'].label, podcast['im:artist'].label, podcast['summary'].label, listEpisodes, podcast['im:image'][0].label)
 
             listElements.push(podcastPayload)
         }

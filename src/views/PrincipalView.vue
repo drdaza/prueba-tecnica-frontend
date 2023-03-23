@@ -17,11 +17,33 @@ onBeforeMount(() => {
 
 <template>
   <main>
-    <div v-for="podcast of podcastStore.allPodcast">
-      <cardComponent :podcast="podcast"/>
-    </div>
+    <section class="cards-section">
+      <div class="card-space" v-for="podcast of podcastStore.allPodcast">
+        <cardComponent :podcast="podcast" />
+      </div>
+    </section>
   </main>
 </template>
-<style lang="scss">
+<style lang="scss" scoped>
+main{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
 
+  .cards-section{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 1vh;
+    .card-space{
+    width: 23%;
+    height: 20vh;
+    border: 1px solid;
+  }
+  }
+}
 </style>
