@@ -1,6 +1,6 @@
 import PodcastService from "./services/PodcastService"
 import PodcastListService from "./services/PodcastListService"
-export default class Repositor{
+export default class Repository{
     api
 
     constructor(api){

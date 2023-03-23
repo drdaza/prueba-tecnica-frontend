@@ -13,7 +13,13 @@ export const usePodcastStore = defineStore(
         actions:{
             async getAll(){
 
-                
+                if(window.localStorage.getItem('podcast')==null){
+                setTimeout(() => {
+                    window.localStorage.clear()
+                    console.log('clear storage');
+                    this.modifyState()
+                }, 1000);
+                }
                 setInterval(()=>{
                     window.localStorage.clear()
                     console.log('clear storage');
