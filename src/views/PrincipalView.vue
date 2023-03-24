@@ -38,11 +38,11 @@ main{
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
-    gap: 1vh;
+    gap: 5vh;
     .card-space{
     width: 23%;
-    height: 20vh;
-    border: 1px solid;
+    height: auto;
+    box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.2);
   }
   }
 }

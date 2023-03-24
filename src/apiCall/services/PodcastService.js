@@ -20,7 +20,7 @@ export default class PodcastService {
 
             const listEpisodes = await this.getAllEpisodes(podcast['id'].attributes['im:id'])
 
-            const podcastPayload = new PodcastPayload(podcast['im:name'].label, podcast['im:artist'].label, podcast['summary'].label, listEpisodes, podcast['im:image'][0].label)
+            const podcastPayload = new PodcastPayload(parseInt(podcast['id'].attributes['im:id']),podcast['im:name'].label, podcast['im:artist'].label, podcast['summary'].label, listEpisodes, podcast['im:image'][0].label)
 
             listElements.push(podcastPayload)
         }
@@ -38,7 +38,7 @@ export default class PodcastService {
 
         const listEpisodes = []
         
-
+        
         for (const episode of data){
             
                 const episodePayload = new EpisodePayload(episode.trackName,episode.description,episode.releaseDate,episode.trackTimeMillis,episode.episodeUrl)
