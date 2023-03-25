@@ -45,6 +45,12 @@ export const usePodcastStore = defineStore(
                 const podcastFinded = this.allPodcast.find(podcast => podcast.id===idPodcast)
 
                 return podcastFinded
+            },
+            findOneEpisode(idPodcast, idEpisode){
+                const podcastToFind = this.findOnePodcast(idPodcast)
+                const episodeFinded = podcastToFind.episodes.find(episode => episode.id === idEpisode)
+
+                return episodeFinded
             }
         }
     

@@ -8,17 +8,12 @@ const props = defineProps({
     }
 })
 
-
-
 const shotdetailsEpisode = (idPodcast, idEpisode)=>{
     router.push({name: 'episode', params:{idPodcast:idPodcast, idEpisode:idEpisode}})
 }
 </script>
 <template>
     <div class="podcast-info">
-        <div class="podcast-card-wrapper">
-            <cardComponent :podcast="podcast" :type-card="'card-info'" />
-        </div>
         <div class="episodes-podcast-wrapper">
             <v-table>
                 <thead>
@@ -53,10 +48,6 @@ const shotdetailsEpisode = (idPodcast, idEpisode)=>{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-
-    .podcast-card-wrapper {
-        width: 25%;
-    }
 
     .episodes-podcast-wrapper {
         width: 70%;
