@@ -10,8 +10,8 @@ const props = defineProps({
 
 
 
-const shotdetailsEpisode = (id)=>{
-    router.push({name: 'episode', params:{ idEpisode:id}})
+const shotdetailsEpisode = (idPodcast, idEpisode)=>{
+    router.push({name: 'episode', params:{idPodcast:idPodcast, idEpisode:idEpisode}})
 }
 </script>
 <template>
@@ -35,7 +35,7 @@ const shotdetailsEpisode = (id)=>{
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="episode of podcast.episodes" @click="shotdetailsEpisode(episode.id)">
+                    <tr v-for="episode of podcast.episodes" @click="shotdetailsEpisode(podcast.id, episode.id)">
                         <td>{{ episode.title }}</td>
                         <td>{{ new Date(episode.releaseDate).toLocaleDateString() }}</td>
                         <td>{{ episode.duration }}</td>

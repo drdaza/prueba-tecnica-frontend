@@ -27,14 +27,13 @@ const router = createRouter({
           name: 'podcast',
           component: () => import('../views/DetailsPodacstView.vue'),
           props: route => ({ id: parseInt(route.params.id) }),
-          children: [
-            {
-              path: 'episode/:idEpisode',
-              name: 'episode',
-              component: () => import('../views/EpisodeDetails.vue'),
-              props: route => ({ idEpisode: parseInt(route.params.idEpisode) })
-            }
-          ]
+          
+        },
+        {
+          path: ':idPodcast/episode/:idEpisode',
+          name: 'episode',
+          component: () => import('../views/EpisodeDetails.vue'),
+          props: route => ({idPodcast:parseInt(route.params.idPocast), idEpisode: parseInt(route.params.idEpisode) })
         }
       ]
     }
