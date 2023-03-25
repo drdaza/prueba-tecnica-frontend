@@ -34,7 +34,7 @@ onBeforeMount(() => {
     justify-content: space-around;
     gap: 5vh;
     .card-space{
-    width: 23%;
+    width: 30%;
     height: auto;
     box-shadow: 0 1px 1px 1px #00000033;
   }

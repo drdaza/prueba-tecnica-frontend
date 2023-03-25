@@ -11,13 +11,17 @@ const podcastId = parseInt(route.params.idPodcast)
 const podcastStore = usePodcastStore()
 
 
-episode.value= podcastStore.findOneEpisode(podcastId,episodeId)
+episode.value = podcastStore.findOneEpisode(podcastId, episodeId)
 
 </script>
 <template>
-      <EpisodeComponent :episode="episode"/>
+      <div class="episode-card-wrapper">
+            <EpisodeComponent :episode="episode" />
+      </div>
 </template>
   
-  <style>
-
-  </style>
+<style lang="scss" scoped>
+.episode-card-wrapper{
+      height: 50vh;
+}
+</style>
