@@ -15,17 +15,11 @@ onBeforeMount(() => {
 
 </script>
 <template>
-    <main>
+
             <DetailsPodcast
              :podcast="podcast" />
-    </main>
+
 </template>
 <style lang="scss" scoped>
-main{
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  flex-wrap: wrap;
-}
+
 </style>

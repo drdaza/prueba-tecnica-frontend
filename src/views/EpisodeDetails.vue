@@ -15,9 +15,7 @@ episode.value= podcastStore.findOneEpisode(podcastId,episodeId)
 
 </script>
 <template>
-
       <EpisodeComponent :episode="episode"/>
-
 </template>
   
   <style>

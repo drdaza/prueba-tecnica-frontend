@@ -36,7 +36,7 @@ onBeforeMount(() => {
     .card-space{
     width: 23%;
     height: auto;
-    box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 1px 1px 1px #00000033;
   }
   }
 
