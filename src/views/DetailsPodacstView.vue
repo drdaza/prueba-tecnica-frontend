@@ -12,10 +12,12 @@ onBeforeMount(() => {
     podcast.value = podcastStore.findOnePodcast(parseInt(route.params.id))
 })
 
+
 </script>
 <template>
     <main>
-            <DetailsPodcast :podcast="podcast" />
+            <DetailsPodcast
+             :podcast="podcast" />
     </main>
 </template>
 <style lang="scss" scoped>

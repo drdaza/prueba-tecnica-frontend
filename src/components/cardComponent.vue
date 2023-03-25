@@ -15,7 +15,7 @@ const props = defineProps({
 })
 
 const shotDetails = ()=>{
-    router.push({name: 'details', params:{ id:props.podcast.id}})
+    router.push({name: 'podcast', params:{ id:props.podcast.id}})
 }
 </script>
 <template>

@@ -1,5 +1,6 @@
 <script setup>
 import cardComponent from './cardComponent.vue';
+import router from '../router';
 const props = defineProps({
     podcast: {
         type: Object,
@@ -8,6 +9,10 @@ const props = defineProps({
 })
 
 
+
+const shotdetailsEpisode = (id)=>{
+    router.push({name: 'episode', params:{ idEpisode:id}})
+}
 </script>
 <template>
     <div class="podcast-info">
@@ -30,16 +35,14 @@ const props = defineProps({
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="episode of podcast.episodes">
+                    <tr v-for="episode of podcast.episodes" @click="shotdetailsEpisode(episode.id)">
                         <td>{{ episode.title }}</td>
                         <td>{{ new Date(episode.releaseDate).toLocaleDateString() }}</td>
                         <td>{{ episode.duration }}</td>
                     </tr>
                 </tbody>
             </v-table>
-            <!--  -->
             <div>
-
             </div>
         </div>
     </div>

@@ -41,7 +41,7 @@ export default class PodcastService {
         
         for (const episode of data){
             
-                const episodePayload = new EpisodePayload(episode.trackName,episode.description,episode.releaseDate,episode.trackTimeMillis,episode.episodeUrl)
+                const episodePayload = new EpisodePayload(episode.trackName,episode.description,episode.releaseDate,episode.trackTimeMillis,episode.episodeUrl, episode.trackId)
                
                 listEpisodes.push(episodePayload)
             
