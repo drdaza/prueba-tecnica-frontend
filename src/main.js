@@ -20,6 +20,7 @@ const pinia = createPinia()
 
 pinia.use((context)=>{
   const storeId = context.store.$id
+  
 
   const serializer = {
     serialize: JSON.stringify,
@@ -31,10 +32,12 @@ pinia.use((context)=>{
 
 
   if(fromStorage){
+
     context.store.$patch(fromStorage)
   }
 
   context.store.$subscribe((mutation, state)=>{
+
     window.localStorage.setItem(storeId, serializer.serialize(state))
   })
 

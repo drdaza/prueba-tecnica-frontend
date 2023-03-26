@@ -21,7 +21,5 @@ episode.value = podcastStore.findOneEpisode(podcastId, episodeId)
 </template>
   
 <style lang="scss" scoped>
-.episode-card-wrapper{
-      height: 50vh;
-}
+
 </style>

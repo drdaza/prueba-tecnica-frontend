@@ -12,13 +12,13 @@ onBeforeMount(() => {
 })
 
 
-
 </script>
 
 <template>
-
+    
     <section class="cards-section">
-      <div class="card-space" v-for="podcast of podcastStore.allPodcast">
+      <h1 v-if="podcastStore.searchPodcast.length==0">No se encuentra ningun elemento</h1>
+      <div class="card-space" v-for="podcast of podcastStore.searchPodcast">
         <cardComponent :podcast="podcast" />
       </div>
     </section>

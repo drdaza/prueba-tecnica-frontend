@@ -29,7 +29,6 @@ const shotDetails = ()=>{
     </div>
 </template>
 <style lang="scss" scoped>
-
 .card-wrapper{
     width: 100%;
     height: 100%;
@@ -40,7 +39,7 @@ const shotDetails = ()=>{
         position: relative;
         top: -20px;
         width: 30%;
-        border-radius: 50px;
+        border-radius: 70px;
         z-index: 10;
         border: 1px solid;
     }
@@ -53,6 +52,4 @@ const shotDetails = ()=>{
     align-items: center;
     box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.2);
 }
-
-    
 </style>

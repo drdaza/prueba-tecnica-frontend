@@ -8,35 +8,35 @@ export const usePodcastStore = defineStore(
     {
         id: 'podcast',
         state: ()=>({
-            allPodcast: []
+            allPodcast: [],
+            searchPodcast: []
         }),
         actions:{
             async getAll(){
-
+                this.searchPodcast = this.allPodcast
                 if(window.localStorage.getItem('podcast')==undefined){
                 setTimeout(() => {
                     window.localStorage.clear()
-                    console.log('clear storage');
+                    console.log('actualize storage');
                     this.modifyState()
                 }, 1000);
                 }
                 setInterval(()=>{
                     window.localStorage.clear()
-                    console.log('clear storage');
+                    console.log('actualize storage');
                     this.modifyState()
                 },36000*24)
-
-                
-
             },
             async modifyState(){
                 if (window.localStorage.getItem('podcast') == undefined) {
-                    console.log('?????');
+
                     const repository = new Repository('podcast')
 
                     const service = repository.chooseApi()
 
                     this.allPodcast = await service.getAll()
+
+                    
 
                     return
                 }
@@ -51,6 +51,28 @@ export const usePodcastStore = defineStore(
                 const episodeFinded = podcastToFind.episodes.find(episode => episode.id === idEpisode)
 
                 return episodeFinded
+            },
+            filterPodcast(finder){
+                /* this.searchPodcast = finder */
+                console.log(finder);
+                let filter = ref([])
+
+                if(finder == ''){
+                    
+                    this.searchPodcast=this.allPodcast;
+                    return
+                }
+
+                if(finder != ''){
+
+                    for (const podcast of this.allPodcast) {
+                        if(podcast.name.includes(finder)||podcast.author.includes(finder)){filter.value.push(podcast)
+                    
+                    }}
+                }
+                this.searchPodcast = filter.value
+
+
             }
         }
     
